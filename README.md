@@ -25,6 +25,8 @@ Then:
 $ docker run --rm -it -p 9907:9907 koddo/browser-console-logger
 ```
 
+Or `-p [your_port]:9907`.
+
 Or just run the python code.
 TODO: use cli params
 
