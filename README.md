@@ -17,6 +17,8 @@ Add this to your `index.html`:
         path="/browser-console-logger"></script>
 ```
 
+TODO: param also the origin (protocol+domain+port) part with some defaults
+
 Then:
 
 ``` Shell
@@ -31,6 +33,5 @@ You can test it with `curl`:
 ``` Shell
 $ curl -X POST -H "Content-Type: text/plain" http://localhost:9907/browser_console_logger --data "hello world"
 ```
-
 
 TODO: maybe later write a websockets app
