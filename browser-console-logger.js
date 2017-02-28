@@ -1,12 +1,16 @@
 // TODO: same for info, warn, error, assert, etc --- http://tobyho.com/2012/07/27/taking-over-console-log/, https://developer.mozilla.org/en-US/docs/Web/API/Console
 (function(proxied) {    // make console.log send a POST request containing the message
-    var logger_link = document.createElement('a');
     if (!window.location.origin) {   // fix for older browsers
         window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
     }
+    document.currentScript = document.currentScript || (function() {    // http://stackoverflow.com/questions/5292372/how-to-pass-parameters-to-a-script-tag/32589923#32589923
+        var scripts = document.getElementsByTagName('script');
+        return scripts[scripts.length - 1];
+    })();
+    var logger_link = document.createElement('a');
     logger_link.href = window.location.origin;
-    logger_link.port = '9907';
-    logger_link.pathname = '/browser_console_logger';
+    logger_link.port = document.currentScript.getAttribute('port');
+    logger_link.pathname = document.currentScript.getAttribute('path');
     console.log = function() {
         var xhr = new XMLHttpRequest();   // yes, I've checked, we don't have or need to reuse this
         xhr.open("POST", logger_link, true);
