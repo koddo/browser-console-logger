@@ -23,7 +23,7 @@ app.logger.setLevel(logging.INFO)
 
 ### currently logs to sdtout only, (maybe later) add a rotated log file
 
-@app.route('/browser_console_logger', methods=['POST'])
+@app.route('/browser-console-logger', methods=['POST'])
 def hello_world():
     l = request.data.decode(encoding="utf-8", errors="replace")
     app.logger.info("--- %s" % (l))

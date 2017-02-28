@@ -12,7 +12,9 @@ So we just decorate `console.log()` to make it send a post requests to our serve
 Add this to your `index.html`:
 
 ``` HTML
-<script src="https://rawgit.com/koddo/browser-console-logger/master/browser-console-logger.js"></script>
+<script src="https://rawgit.com/koddo/browser-console-logger/master/browser-console-logger.js"
+        port="9907"
+        path="/browser-console-logger"></script>
 ```
 
 Then:
