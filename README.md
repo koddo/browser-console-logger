@@ -34,7 +34,7 @@ You can test it with `curl`:
 
 ``` Shell
 $ curl -X POST \\
-       -H "Content-Type: text/plain" http://localhost:9907/browser_console_logger \\
+       -H "Content-Type: text/plain" http://localhost:9907/browser-console-logger \\
        --data "hello world"
 ```
 
