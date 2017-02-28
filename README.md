@@ -21,13 +21,14 @@ Then:
 $ docker run --rm -it -p 9907:9907 koddo/browser-console-logger
 ```
 
+
+# Misc
+
 You can test it with `curl`:
 
 ``` Shell
 $ curl -X POST -H "Content-Type: text/plain" http://localhost:9907/browser_console_logger --data "hello world"
 ```
 
-
-# Misc
 
 TODO: maybe later write a websockets app
