@@ -38,4 +38,5 @@ $ curl -X POST \\
        --data "hello world"
 ```
 
+TODO: add a nginx example conf to have an app and the logger on the same port
 TODO: maybe later write a websockets app
