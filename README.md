@@ -26,6 +26,7 @@ $ docker run --rm -it -p 9907:9907 koddo/browser-console-logger
 ```
 
 Or just run the python code.
+TODO: use cli params
 
 # Misc
 
