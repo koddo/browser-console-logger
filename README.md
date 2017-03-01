@@ -1,10 +1,11 @@
 
-# Why?
+# Browser console logs in your terminal? Why?
 
 Because mobile.
 
-It's so inconvenient to use xcode or adb and a wire to get browser logs.
-So we just decorate `console.log()` to make it send a post requests to our server containing the messages.
+It's so inconvenient to use xcode or adb and a wire to get console logs from mobile browsers.  
+So we just decorate `console.log()` et al to make it send post requests to our server containing the messages.  
+Happily works inside cordova, for which it was written in the first place.
 
 TODO: maybe later write a websockets app when simple post requests are no longer enough
 
@@ -27,12 +28,9 @@ Then:
 $ docker run --rm -it -p 9907:9907 koddo/browser-console-logger
 ```
 
-Or `-p [your_port]:9907`.
-
-Or just run the python code.
-TODO: use cli params
-
 # Misc
+
+9907 is LOGG upside down.
 
 You can test it with `curl`:
 
@@ -42,6 +40,18 @@ $ curl -X POST \\
        --data "hello world"
 ```
 
-9907 is LOGG upside down.
+You can specify the port you want to bind with docker: `-p [your_port]:9907`.
+
+For your `docker-compose.yml`:
+
+```
+  browser-console-logger:
+    image: koddo/browser-console-logger
+    ports:
+      - "9907:9907"
+```
+
+Or you can just run the python code directly.
+TODO: cli params
 
 TODO: add a nginx example conf to have an app and the logger on the same port
