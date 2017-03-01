@@ -29,7 +29,11 @@
             original(message);
         }
     };
-    ['log', 'warn', 'error'].forEach(intercept);
+    ['log', 'warn', 'error'].forEach(function(method) {
+        intercept(method);
+    });
+    
+}
 
 }(window.console));
 
