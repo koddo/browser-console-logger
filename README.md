@@ -58,4 +58,3 @@ TODO: add a nginx example conf to have an app and the logger on the same port
 
 <https://hub.docker.com/r/koddo/browser-console-logger/>
 
-I also found a mysterious bug: when I run the app with python 3, flask hangs occasionally. And this doesn't happen with 2.7.
