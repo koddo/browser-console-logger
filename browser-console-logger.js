@@ -28,7 +28,7 @@
             xhr.open("POST", logger_link, true);
             xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
             arguments_object_converted_to_array = Array.prototype.slice.call(arguments);      // http://stackoverflow.com/questions/960866/how-can-i-convert-the-arguments-object-to-an-array-in-javascript
-            xhr.send("".concat.apply(arguments_object_converted_to_array));
+            xhr.send(method + ": " + "".concat.apply(arguments_object_converted_to_array));
             return res;
         }
     };
