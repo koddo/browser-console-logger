@@ -51,7 +51,7 @@ For your `docker-compose.yml`:
       - "9907:9907"
 ```
 
-Or you can just run the python code directly.
+Or you can just run the python code directly.  
 TODO: cli params
 
 TODO: add a nginx example conf to have an app and the logger on the same port
