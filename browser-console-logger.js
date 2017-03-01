@@ -15,20 +15,21 @@
 
     
     function intercept(method) {
-        var xhr = new XMLHttpRequest();   // yes, I've checked, we don't have or need to reuse this
-        xhr.open("POST", logger_link, true);
-        xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
-        arguments_object_converted_to_array = Array.prototype.slice.call(arguments);      // http://stackoverflow.com/questions/960866/how-can-i-convert-the-arguments-object-to-an-array-in-javascript
-        xhr.send("".concat.apply(arguments_object_converted_to_array));
-
         var original = console[method];
         console[method] = function() {
+            var res;
             if (original.apply) {
-                return original.apply(console, arguments);
+                res = original.apply(console, arguments);
             } else {  // IE
                 var message = Array.prototype.slice.apply(arguments).join(' ');
-                original(message);
+                res = original(message);
             }
+            var xhr = new XMLHttpRequest();   // yes, I've checked, we don't have or need to reuse this
+            xhr.open("POST", logger_link, true);
+            xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
+            arguments_object_converted_to_array = Array.prototype.slice.call(arguments);      // http://stackoverflow.com/questions/960866/how-can-i-convert-the-arguments-object-to-an-array-in-javascript
+            xhr.send("".concat.apply(arguments_object_converted_to_array));
+            return res;
         }
     };
     ['log', 'warn', 'error'].forEach(function(method) {
