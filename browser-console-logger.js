@@ -22,11 +22,13 @@
         xhr.send("".concat.apply(arguments_object_converted_to_array));
 
         var original = console[method];
-        if (original.apply) {
-            return original.apply(console, arguments);
-        } else {  // IE
-            var message = Array.prototype.slice.apply(arguments).join(' ');
-            original(message);
+        console[method] = function() {
+            if (original.apply) {
+                return original.apply(console, arguments);
+            } else {  // IE
+                var message = Array.prototype.slice.apply(arguments).join(' ');
+                original(message);
+            }
         }
     };
     ['log', 'warn', 'error'].forEach(function(method) {
