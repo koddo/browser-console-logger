@@ -16,9 +16,11 @@
     logger_link.port = currentScript.getAttribute('port');
     logger_link.pathname = currentScript.getAttribute('path');
 
+    var original_console_log = console.log;
     function xhr_send(link, msg) {
         var xhr = new XMLHttpRequest();   // yes, I've checked, we don't have or need to reuse this
         xhr.open("POST", link, true);
+        xhr.onerror = function () { original_console_log("browser-console-logger: post request to backend failed"); };
         xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
         xhr.send(msg);
         // TODO: check for http errors
@@ -59,8 +61,23 @@
         return res;
     };
 
+    function mySimpleStringify(object) {
+        var simpleObject = {};
+        for (var prop in object) {
+            if (typeof(object[prop]) == 'object'){
+                simpleObject[prop] = "{...}";
+            } else if (typeof(object[prop]) == 'function'){
+                simpleObject[prop] = "(function)";
+            } else {
+                simpleObject[prop] = object[prop];
+            }
+        }
+        return JSON.stringify(simpleObject, null, 4);
+    };
     window.addEventListener('error', function(e) {
-        xhr_send(logger_link, "(error event) " + e)
+        // dumps the whole e.target, too verbose and doesn't give reason (like 404)
+        // TODO: better message on error event
+        xhr_send(logger_link, "(error event) e.target = " + mySimpleStringify(e.target));
     }, true);
     
 }());
