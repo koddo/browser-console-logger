@@ -1,7 +1,8 @@
 // inspired by http://tobyho.com/2012/07/27/taking-over-console-log/
 // see also https://developer.mozilla.org/en-US/docs/Web/API/Console
 
-(function(console) {    // make console.log send a POST request containing the message
+(function() {
+    console = window.console;   // to avoid dom lookup on every function call
     if (!console)
         return;
 
@@ -20,6 +21,7 @@
         xhr.open("POST", link, true);
         xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
         xhr.send(msg);
+        // TODO: check for http errors
     }
     
     function intercept(method) {
@@ -57,5 +59,9 @@
         return res;
     };
 
-}(window.console));
+    window.addEventListener('error', function(e) {
+        xhr_send(logger_link, "(error event) " + e)
+    }, true);
+    
+}());
 
