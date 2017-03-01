@@ -45,7 +45,9 @@
 
     var original_onerror = window.onerror;
     window.onerror = function(msg, url, line, col, err) {
-        original_onerror(msg, url, line, col, err);
+        if(original_onerror) {
+            original_onerror(msg, url, line, col, err);
+        }
         var stacktrace = "";
         if (typeof err !== 'undefined' && err !== null) {   // iOS Safari has err undefined
             stacktrace = ", stacktrace: " + err.stack;
