@@ -26,7 +26,7 @@ app.logger.setLevel(logging.INFO)
 @app.route('/browser-console-logger', methods=['POST'])
 def hello_world():
     l = request.data.decode(encoding="utf-8", errors="replace")
-    app.logger.info("--- %s" % (l))
+    app.logger.info("%s" % (l))
     return ('', 204)
 
 
