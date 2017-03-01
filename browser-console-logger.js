@@ -45,14 +45,16 @@
 
     var original_onerror = window.onerror;
     window.onerror = function(msg, url, line, col, err) {
+        var res = null;
         if(original_onerror) {
-            original_onerror(msg, url, line, col, err);
+            res = original_onerror(msg, url, line, col, err);
         }
         var stacktrace = "";
         if (typeof err !== 'undefined' && err !== null) {   // iOS Safari has err undefined
             stacktrace = ", stacktrace: " + err.stack;
         }
         xhr_send(logger_link, "(window.onerror) " + msg + ", " + url + ", " + line + ", " + col + stacktrace);
+        return res;
     };
 
 }(window.console));
