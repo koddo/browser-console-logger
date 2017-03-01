@@ -55,3 +55,5 @@ Or you can just run the python code directly.
 TODO: cli params
 
 TODO: add a nginx example conf to have an app and the logger on the same port
+
+<https://hub.docker.com/r/koddo/browser-console-logger/>
