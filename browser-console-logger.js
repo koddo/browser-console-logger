@@ -38,15 +38,3 @@
     
 }(window.console));
 
-// the following snippet didn't work in ios8, so we don't use it, maybe try it again later:
-// window.addEventListener("error", function (e) { ... } );
-// window.onerror = function(msg, url, line, col, err) {
-//     var stacktrace = "";                                                    
-//     if (typeof err !== 'undefined' && err !== null) {   // ios8 has this undefined
-//         stacktrace = ", stacktrace: " + err.stack;                                                    
-//     }
-//     console.log("error: " + msg + ", " + url + ", " + line + ", " + col + stacktrace);
-// };
-
-// console.log("browser_console_logger ok");
-// console.warn("browser_console_logger_error_warn ok");
