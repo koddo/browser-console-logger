@@ -6,6 +6,8 @@ Because mobile.
 It's so inconvenient to use xcode or adb and a wire to get browser logs.
 So we just decorate `console.log()` to make it send a post requests to our server containing the messages.
 
+TODO: maybe later write a websockets app when simple post requests are no longer enough
+
 
 # Setup
 
@@ -40,7 +42,6 @@ $ curl -X POST \\
        --data "hello world"
 ```
 
-9907 is LOGG upside down, leetspeak.
+9907 is LOGG upside down.
 
 TODO: add a nginx example conf to have an app and the logger on the same port
-TODO: maybe later write a websockets app
