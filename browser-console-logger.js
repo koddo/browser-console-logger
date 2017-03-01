@@ -33,8 +33,6 @@
         intercept(method);
     });
     
-}
-
 }(window.console));
 
 // the following snippet didn't work in ios8, so we don't use it, maybe try it again later:
