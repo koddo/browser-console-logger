@@ -38,3 +38,10 @@
     
 }(window.console));
 
+window.onerror = function(msg, url, line, col, err) {
+    var stacktrace = "";
+    if (typeof err !== 'undefined' && err !== null) {   // ios8 has this undefined
+        stacktrace = ", stacktrace: " + err.stack;
+    }
+    console.error(msg + ", " + url + ", " + line + ", " + col + stacktrace);
+};
