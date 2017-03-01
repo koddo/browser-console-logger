@@ -32,7 +32,7 @@
             return res;
         }
     };
-    ['log', 'warn', 'error'].forEach(function(method) {
+    ['log', 'warn', 'debug', 'info', 'assert', 'error', 'count'].forEach(function(method) {
         intercept(method);
     });
     
