@@ -54,6 +54,8 @@ For your `docker-compose.yml`:
 Or you can just run the python code directly.  
 TODO: cli params
 
+Flask app is run with `threaded=True`, because it weirdly gets stuck sometimes in a single thread, I don't know why.
+
 TODO: add a nginx example conf to have an app and the logger on the same port
 
 <https://hub.docker.com/r/koddo/browser-console-logger/>
