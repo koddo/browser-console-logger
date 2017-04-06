@@ -30,6 +30,8 @@ $ docker run --rm -it -p 9907:9907 koddo/browser-console-logger
 
 # Misc
 
+TODO: add `console.table()`, `.group()`, etc
+
 9907 is LOGG upside down.
 
 You can test it with `curl`:
