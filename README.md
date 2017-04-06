@@ -30,7 +30,7 @@ $ docker run --rm -it -p 9907:9907 koddo/browser-console-logger
 
 # Misc
 
-TODO: add `console.table()`, `.group()`, etc
+TODO: add `console.table()`, `.group()`, etc, <https://developer.mozilla.org/en-US/docs/Web/API/Console>
 
 9907 is LOGG upside down.
 
